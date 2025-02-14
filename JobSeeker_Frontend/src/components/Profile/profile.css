@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  --primary-font: 'Newsreader', serif; /* Replace serif with fallback */
+  --secondary-font: 'Afacad', sans-serif;
+  
+  color-scheme: light dark;
+  color: rgb(29, 25, 25);
+  background-color: #ffffff;
+
+}
+h2{
+    font-family:'Newsreader', serif; 
+    font-weight: 500;
+    text-align: center;
+    font-size: 42px;
+
+}
+.profile{
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    max-width: auto;
+    width: 100%;
+    border: 1px solid grey;
+    justify-content: center;
+    font-family:'Newsreader', serif ;
+    font-size: 28px;
+}
+.profile-pic {
+    margin-top: 10px;
+    width: 120px; /* Ensures consistency in size */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+  }

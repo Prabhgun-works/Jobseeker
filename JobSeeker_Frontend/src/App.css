@@ -1,42 +1,133 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+@import "tailwindcss";
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+:root {
+  --primary-font: 'Newsreader', serif; /* Replace serif with fallback */
+  --secondary-font: 'Afacad', sans-serif;
+  
+  color-scheme: light dark;
+  color: rgb(29, 25, 25);
+  background-color: #ffffff;
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+}
+body {
+    margin: 30px;
+    min-width: 320px;
+    min-height: 100vh;
   }
-  to {
-    transform: rotate(360deg);
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+    color :  rgb(23, 84, 43);
+    font-family: 'Newsreader', serif;
+    font-weight: 550;
+    background-image: url('');
   }
+ 
+    
+  .navbar {
+    display: flex;
+    position: absolute;
+    top: -40px;
+    right: -10px;
+    background-color: none;
+    padding: 10px 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 10px auto;
+  border: 3px solid #007bff;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Hide Default Input */
+.custom-file-upload input {
+  display: none;
+}
+
+.navbar a {
+    flex-grow: 1;
+    font-size: 20px;
+    line-height: 1.0;
+    font-family:  'Afacad', sans-serif;
+    font-weight: 200;
+    color: rgb(18, 18, 18);
+    font-family: 'Afacad', sans-serif;
+    text-decoration: none;
+    margin-right: 15px;
+    padding: 8px 12px;
+}
+
+.navbar a:hover {
+    color: rgb(12, 11, 11);
+}
+
+ .container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto; /* Centers the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+  
+  .container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-family: 'Newsreader', serif;
+    font-weight: 550;
+    color: #333;
+  }
+  
+  .container form {
+    display: flex;
+    flex-direction: column; /* Stack inputs vertically */
+    gap: 15px; /* Adds spacing between inputs */
+    width: 100%;
+  }
+  
+  .container input {
+    width: 100%; /* Makes inputs full width */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .container input:focus {
+    outline: none;
+    border-color: #646cff;
+    box-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+  }
+  
+  .container button {
+    width: 100%;
+    padding: 12px;
+    background-color: rgb(8, 106, 39);
+    font-family: 'Newsreader', serif;
+    font-weight: 550;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .container button:hover {
+    background-color: rgb(8, 69, 27);
+  }

@@ -1,0 +1,93 @@
+/* Profile Picture Styling */
+.profile-pic {
+    margin-top: 10px;
+    width: 120px; /* Ensures consistency in size */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+  }
+  
+  /* Input Styling */
+  input {
+    margin: 10px 0;
+    padding: 12px; /* Slightly larger padding for better UX */
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Uniform text size */
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle focus effect */
+  }
+  
+  /* Button Styling */
+  button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Darker blue for hover effect */
+  }
+  
+  /* Modal Backdrop */
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Box */
+  .modal {
+    background: white;
+    padding: 20px 30px; /* Increased padding for better spacing */
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    width: 90%; /* Adaptive width for smaller screens */
+    max-width: 400px; /* Prevents modal from getting too wide */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  }
+  
+  /* Close Button */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 20px; /* Slightly larger size for visibility */
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .close-button:hover {
+    color: red; /* Red for hover effect */
+  }
+  
+  /* For Text Inside Modal */
+  .modal p {
+    margin: 20px 0 10px;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+  }
+  

@@ -1,11 +1,34 @@
-import React from 'react'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
- function App () {
+import { UserProvider } from "./context";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./components/Landing /home";
+import Profile from "./components/Profile/profile";
+import Login from "./components/Navbar/Login";
+import SignUp from "./components/Navbar/signup";
+
+import './App.css';
+function App() {
   return (
-    <div>
-      <h1>Hi</h1>
-    </div>
-  )
+  
+      <Router>
+        <UserProvider>
+          <h1>JobSeeker</h1>
+          <div className="navbar">
+          <Navbar />
+          </div>
+        <Routes >
+          <Route path="/home" element = {<Home/>} />
+          <Route path="/profile" element = {<Profile/>} />
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+        </UserProvider>
+      </Router>
+  
+   
+  );
 }
-export default App
+
+export default App;
