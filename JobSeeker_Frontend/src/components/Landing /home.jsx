@@ -1,5 +1,6 @@
 import { useState } from 'react' ;
 import './home.css';
+import img from '../../assets/HeroImg.png';
 export default function Home() {
   const[query , setQuery] = useState("");
   const jobs = [
@@ -20,7 +21,7 @@ export default function Home() {
       <input type='text' placeholder='Search... ' value={query} 
       onChange={(e)=> setQuery(e.target.value)} className='search-bar'/> 
       <div className='hero-container'>
-        <img src='src/assets/HeroImg.png' className='hero-img' alt='HeroImg'></img>
+        <img src={img} className='hero-img' alt='HeroImg'></img>
       </div>
     <h4>Featured Jobs</h4>
     <div className="job-list">
