@@ -1,5 +1,4 @@
 import { useState } from 'react' ;
-
 import './home.css';
 export default function Home() {
   const[query , setQuery] = useState("");
@@ -20,7 +19,10 @@ export default function Home() {
     <div>
       <input type='text' placeholder='Search... ' value={query} 
       onChange={(e)=> setQuery(e.target.value)} className='search-bar'/> 
-
+      <div className='hero-container'>
+        <img src='src/assets/HeroImg.png' className='hero-img' alt='HeroImg'></img>
+      </div>
+    <h4>Featured Jobs</h4>
     <div className="job-list">
         {filteredJobs.map((job, index) => (
           <div className="job-card" key={index}>
@@ -29,8 +31,7 @@ export default function Home() {
             <p>{job.location}</p>
             <button className="view-details">View Details</button>
           </div>
-        ))}
-      </div>
+        ))}      </div>
     </div>
   );
 }

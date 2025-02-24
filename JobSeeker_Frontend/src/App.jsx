@@ -7,6 +7,7 @@ import Profile from "./components/Profile/profile";
 import Login from "./components/Navbar/Login";
 import SignUp from "./components/Navbar/signup";
 
+
 import './App.css';
 function App() {
   return (
