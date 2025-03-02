@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { UserProvider } from "./context"
 
 import Navbar from "./components/Navbar/Navbar"
-import Home from "./components/Landing/home" // Corrected import path
-import Profile from "./components/Profile/Profile" // Ensure correct import path
+import Home from "./components/Landing/home" 
+import Profile from "./components/Profile/profile" 
 import Login from "./components/Navbar/Login"
-import SignUp from "./components/Navbar/SignUp"
+import SignUp from "./components/Navbar/signUp"
 import JoinCommunity from "./components/Community/Community"
 import CoursesPage from "./components/Courses/CoursesPage"
 
