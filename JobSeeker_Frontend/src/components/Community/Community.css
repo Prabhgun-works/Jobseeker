@@ -1,0 +1,175 @@
+/* Community Dialog Styles */
+.community-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .community-dialog {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .communities-list {
+    padding: 20px;
+  }
+  
+  .community-preview {
+    margin-bottom: 24px;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .community-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .member-count {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .community-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .message {
+    padding: 10px;
+    background-color: white;
+    border-radius: 6px;
+    border-left: 3px solid #3498db;
+  }
+  
+  .message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  
+  .user-name {
+    font-weight: bold;
+  }
+  
+  .timestamp {
+    color: #999;
+    font-size: 12px;
+  }
+  
+  .dialog-footer {
+    padding: 16px 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+  }
+  
+  .join-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .join-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Join Community Page Styles */
+  .join-community-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  
+  .community-tabs {
+    display: flex;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .tab {
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .tab.active {
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
+  }
+  
+  .communities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  
+  .community-card {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+  }
+  
+  .community-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .join-community-btn {
+    margin-top: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: #666;
+  }
+  
+  

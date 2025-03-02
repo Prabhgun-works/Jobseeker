@@ -5,7 +5,7 @@
     margin: 20px auto;
     display: block;
     border: 2px solid #ccc;
-    border-radius: 20px; /* Adjust for a softer curve */
+    border-radius: 20px;
     font-size: 16px;
     outline: none;
     transition: all 0.3s ease-in-out;
@@ -17,12 +17,13 @@
   }
   .job-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 4fr));
-    gap: 20px;
+    color: rgb(29, 29, 29);
+    grid-template-columns: repeat(auto-fill, minmax(600px, 8fr));
+    gap: 10px;
   }
   
   .job-card {
-    border: 1px solid #ddd;
+    border: 1px solid #ffffff;
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -70,3 +71,32 @@
     text-align: center;
     font-size: 42px;
   }
+  .community-section {
+    display: flex;
+    justify-content: center;
+    background-image: url('../../assets/Community.png');
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    gap: 2vh;
+    align-items: center;
+    flex-direction: column;
+    margin: 10vh;
+}
+
+.community-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.378); /* Adjust the opacity here */
+    z-index: 1;
+}
+
+.community-section > * {
+    position: relative;
+    z-index: 2;
+}

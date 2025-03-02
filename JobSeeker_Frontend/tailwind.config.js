@@ -1,17 +1,7 @@
-module.exports = {
-    theme: {
-      extend: {
-        fontFamily: {
-          sans: ['newsreader', 'afacad'],
-        },
-        colors: {
-          primary: '#yourPrimaryColor',
-        },
-        spacing: {
-          sm: '8px',
-          lg: '32px',
-        },
-      },
-    },
-  };
-  
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})

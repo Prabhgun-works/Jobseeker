@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useUser } from "../../context";
-
 import './profile.css';
 
 export default function Profile() {
@@ -9,14 +8,15 @@ export default function Profile() {
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser) {
-      setUser(storedUser); // Restore user data from localStorage
+      setUser(storedUser); 
     }
-  }, [setUser]); // Runs only when `setUser` changes
+  }, [setUser]); 
 
   return (
-    <div >
-      <h2> Profile</h2>
+    <div className='h-screen  py-4 bg-sky-00 flex gap-8'> 
+  
       <div className="profile">
+      <h2> Profile</h2>
       {user ? (
         <>
           <img className="profile-pic" src={user.image}  />
@@ -25,6 +25,7 @@ export default function Profile() {
       ) : (
         <p>No user data available.</p>
       )}
+    
       </div>
     </div>
   );

@@ -1,0 +1,24 @@
+{
+    "courses": [
+      {
+        "id": 1,
+        "name": "Resume Building Masterclass",
+        "enrolled": 1243,
+        "description": "Learn how to craft a resume that stands out to recruiters and passes ATS systems. This course covers formatting, content optimization, and tailoring your resume for specific job applications."
+      },
+      {
+        "id": 2,
+        "name": "Technical Interview Prep",
+        "enrolled": 2156,
+        "description": "Comprehensive preparation for technical interviews, covering data structures, algorithms, system design, and behavioral questions. Includes mock interviews and personalized feedback."
+      },
+      {
+        "id": 3,
+        "name": "Networking for Job Seekers",
+        "enrolled": 876,
+        "description": "Master the art of professional networking both online and in-person. Learn how to leverage LinkedIn, industry events, and informational interviews to uncover hidden job opportunities."
+      }
+    ]
+  }
+  
+  
