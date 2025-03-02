@@ -1,6 +1,10 @@
 import coursesData from "../../data/courses.json"
 import "./Courses.css"
 
+// this component displays a list of available courses that the user can enroll in.
+// The component uses the coursesData from the courses.json file to populate the list of courses.
+
+// The handleEnroll function logs the course id to the console when the user enrolls in a course.
 const CoursesPage = () => {
   const { courses } = coursesData
 

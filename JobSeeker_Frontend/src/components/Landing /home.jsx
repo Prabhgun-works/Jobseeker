@@ -6,7 +6,8 @@ import CommunityDialog from '../Community/CommunityDialog';
 
 
 export default function Home() {
-  
+  // this is dummy data for featured Jobs
+
   const[query , setQuery] = useState("");
   const jobs = [
     { title: "Frontend Developer", company: "TechCorp", location: "New York, NY" },
@@ -16,9 +17,14 @@ export default function Home() {
     { title: "DevOps Engineer", company: "CloudTech", location: "Chicago, IL" },
     { title: "Data Scientist", company: "AllInnovate", location: "Boston, MA" },
   ];
+
+    // this function filters the jobs based on the user input in Searchbar
   const filteredJobs = jobs.filter((job) =>
     job.title.toLowerCase().includes(query.toLowerCase())
-  );const [showCommunityDialog, setShowCommunityDialog] = useState(false)
+  );
+
+  //this dialog is for the community section
+  const [showCommunityDialog, setShowCommunityDialog] = useState(false)
 
   const openCommunityDialog = () => {
     setShowCommunityDialog(true)
@@ -31,6 +37,7 @@ export default function Home() {
 
   return (
     <div>
+
       <input type='text' placeholder='Search... ' value={query} 
       onChange={(e)=> setQuery(e.target.value)} className='search-bar'/> 
       
@@ -48,7 +55,8 @@ export default function Home() {
             <p>{job.location}</p>
             <button className="view-details">View Details</button>
           </div>
-        ))}      </div>
+        ))}     
+        </div>
         <div className="home-container">
       <div className="hero-section">
      
@@ -71,3 +79,5 @@ export default function Home() {
     </div>
   );
 }
+//The search bar filters the list of jobs based on the user input. The community section includes a button to open a dialog for browsing different communities.
+//

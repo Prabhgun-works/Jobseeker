@@ -5,6 +5,7 @@ import './profile.css';
 export default function Profile() {
   const { user, setUser } = useUser();
 
+  //Fetch user data from local storage
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser) {
@@ -13,7 +14,7 @@ export default function Profile() {
   }, [setUser]); 
 
   return (
-    <div className='h-screen  py-4 bg-sky-00 flex gap-8'> 
+    <div className='h-screen  py-4 flex gap-8'> 
   
       <div className="profile">
       <h2> Profile</h2>
@@ -30,3 +31,5 @@ export default function Profile() {
     </div>
   );
 }
+//this Profile component It uses the useUser from Context.jsx to access the user state and setUser function from the UserContext.
+// It also uses the useEffect hook to retrieve the user data from local storage when the component mounts.

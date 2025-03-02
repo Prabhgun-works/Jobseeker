@@ -12,3 +12,5 @@ export default function Navbar() {
     </div>
   );
 }
+// This Navbar component is a simple navigation bar that includes links to different pages of the application.
+// It uses the Link component from React Router to navigate between pages.

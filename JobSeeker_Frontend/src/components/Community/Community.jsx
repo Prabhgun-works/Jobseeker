@@ -2,14 +2,16 @@ import { useState } from "react"
 import communityData from "../../data/Community.json"
 import "./Community.css"
 
+// this component has the role of displaying a list of communities that the user can join.
+// The component uses the communityData from the Community.json file to populate the list of communities.
+
 const JoinCommunity = () => {
   const [activeTab, setActiveTab] = useState("popular")
   const { communities, suggested } = communityData
 
-  // just a placeholder for now
   const handleJoin = (communityId) => {
     console.log(`Joined community ${communityId}`)
-    // TODO: implement actual join functionality
+    // rn it just logs the community id to the console
   }
 
   return (

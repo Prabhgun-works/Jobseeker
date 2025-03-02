@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { UserProvider } from "./context"
 
 import Navbar from "./components/Navbar/Navbar"
-import Home from "./components/Landing/home" 
+import Home from "./components/Landing /home" 
 import Profile from "./components/Profile/profile" 
 import Login from "./components/Navbar/Login"
 import SignUp from "./components/Navbar/signUp"
@@ -34,3 +34,8 @@ function App() {
 }
 
 export default App
+// This App component sets up the main structure of the application using React Router for navigation. 
+// It includes a UserProvider context to manage user state and renders a Navbar along with different routes for various pages like Home, Profile, Login, SignUp, JoinCommunity, and CoursesPage. 
+
+
+  

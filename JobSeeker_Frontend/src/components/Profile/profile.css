@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --primary-font: 'Newsreader', serif; /* Replace serif with fallback */
+  --primary-font: 'Newsreader', serif; 
   --secondary-font: 'Afacad', sans-serif;
   
   color-scheme: light dark;
@@ -33,5 +33,5 @@ h2{
     height: 120px;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid #007bff;
+    border: 3px solid #d2dbe4;
   }

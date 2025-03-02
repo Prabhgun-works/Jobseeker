@@ -2,6 +2,9 @@ import { useState } from "react";
 import "./signup.css"; 
 import { useUser } from "../../context";
 
+// It uses the useUser hook from the UserContext to access the setUser function and update the user state with the new user data.
+// It also saves the user data to local storage and displays a modal with a success message when the form is submitted.
+
 export default function SignUp() {
   const {setUser} = useUser();
 
@@ -13,41 +16,40 @@ export default function SignUp() {
   const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files[0]; // this file is the image file , we are getting the first file from the array of files , as we are only allowing one file to be uploaded.
     if (file) {
       setImage(URL.createObjectURL(file));
     }
   };
 
   const handleSubmit = (e) => {
-  e.preventDefault(); // Prevent form submission
+  e.preventDefault(); 
+  
   setMessage(`${userName}, your account has been created!`);
     const userData = { userName, image, password };
 
-    setUser(userData); // Update context
-    localStorage.setItem("user", JSON.stringify(userData)); // Save to localStorage
+    setUser(userData); 
+    localStorage.setItem("user", JSON.stringify(userData)); 
 
   setMessage(`${userName}, your account has been created!`);
-  setDialogOpen(true);    
-    setDialogOpen(true); // Open the modal
+  setDialogOpen(true);      
   };
   const closeModal = () => {
-    setDialogOpen(false);
+    setDialogOpen(false); // this will close the modal
   };
 
   const stopPropagation = (e) => {
-    e.stopPropagation(); // Prevent click event from reaching the backdrop
+    e.stopPropagation(); // this will stop the event from bubbling up the DOM tree.
   };
 
   return (
     <div className="container">
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
-        {/* Profile Picture Preview */}
+
         {image && <img src={image} alt="Profile" width="200" className="profile-pic" />}
         <input type="file" accept="image/*" onChange={handleChange} />
 
-        {/* User Inputs */}
         <input
           placeholder="Set Username"
           value={userName}
@@ -69,9 +71,9 @@ export default function SignUp() {
         <button type="submit">Create Account</button>
       </form>
 
-      {/* Modal */}
-      {dialogOpen && (
-        <div className="modal-backdrop" onClick={closeModal}>
+      {dialogOpen && ( // this will show the modal only when dialogOpen is true
+        <div className="modal-backdrop" onClick={closeModal}> 
+        
           <div className="modal" onClick={stopPropagation}>
             <p>{message}</p>
           </div>
