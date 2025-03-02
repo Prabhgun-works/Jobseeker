@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 import { UserProvider } from "./context"
+
 import Navbar from "./components/Navbar/Navbar"
 import Home from "./components/Landing /home"
 import Profile from "./components/Profile/profile"
