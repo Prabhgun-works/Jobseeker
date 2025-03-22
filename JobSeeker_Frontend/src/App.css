@@ -78,8 +78,8 @@ h3 {
   flex-direction: column;
   background-color: var(--color-light);
   background-image: 
-    linear-gradient(var(--color-dark-20) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-dark-20) 1px, transparent 1px);
+    linear-gradient(var(--color-dark-30) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-dark-30) 1px, transparent 1px);
   background-size: 30px 30px;
   background-position: center center;
   position: relative;
@@ -92,7 +92,7 @@ h3 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, transparent 0%, var(--color-light) 85%);
+  background: radial-gradient(circle at center, transparent 0%, var(--color-light) 90%);
   pointer-events: none;
 }
 
