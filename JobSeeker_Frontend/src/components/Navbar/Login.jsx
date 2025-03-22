@@ -1,26 +1,82 @@
-import {useState} from 'react';
+import { useState } from "react";
+import { useUser } from "../../context.jsx";
+import { useNavigate } from "react-router-dom";
 
+import "./Login.css";
 
-export default function Login({onSubmit}) {
-  const [userName, setUserName] = useState("");
-  const [password , setPassword] = useState('');
+export default function Login() {
+  const { setUser } = useUser();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  function handleSubmit() {
-    onSubmit({userName , password})
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({ email, password }),
+        credentials: 'include'
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Login failed");
+      }
+
+      const data = await response.json();
+      
+      // Store user data in context
+      setUser(data.user);
+      
+      // Show success message
+      alert("Login successful! Welcome back!");
+      
+      // Redirect to dashboard
+      navigate("/");
+      
+    } catch (error) {
+      console.error("Login error:", error);
+      setError(error.message || "Failed to connect to server. Please check if the server is running.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <div className='container' >
-
-        <h2>Login</h2>
-        <form>
-            <input placeholder='Enter UserName ' onChange={(e) => setUserName(e.target.value)}
-                value={userName} type='text'></input>
-
-            <input placeholder='Enter password' onChange={(e) => setPassword(e.target.value)}
-            value={password} type='password'></input>
-            <button onClick={(handleSubmit)}>Submit</button>
-        </form>
+    <div className="login-container">
+      <h2>Login</h2>
+      {error && <div className="error-message">{error}</div>}
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          disabled={isLoading}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          disabled={isLoading}
+        />
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Logging in..." : "Login"}
+        </button>
+      </form>
     </div>
-  )
+  );
 }
-// This Component is  a form that allows users to enter their username and password to log in.

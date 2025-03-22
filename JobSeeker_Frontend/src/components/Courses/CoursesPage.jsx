@@ -1,18 +1,20 @@
-import coursesData from "../../data/courses.json"
-import "./Courses.css"
+import React, { useState } from "react";
+import coursesData from "../../data/courses.json";
+import "./Courses.css";
 
-// this component displays a list of available courses that the user can enroll in.
-// The component uses the coursesData from the courses.json file to populate the list of courses.
-
-// The handleEnroll function logs the course id to the console when the user enrolls in a course.
 const CoursesPage = () => {
-  const { courses } = coursesData
+  const { courses } = coursesData;
+  const [enrolledCourse, setEnrolledCourse] = useState(null);
 
-  const userEnrolled = []
+  const userEnrolled = [];
 
   const handleEnroll = (courseId) => {
-    console.log(`Enrolled in course ${courseId}`)
-  }
+    setEnrolledCourse(courseId);
+  };
+
+  const closeDialog = () => {
+    setEnrolledCourse(null);
+  };
 
   return (
     <div className="courses-page">
@@ -20,7 +22,6 @@ const CoursesPage = () => {
 
       <div className="courses-list">
         {courses.map((course) => {
-          const isEnrolled = userEnrolled.includes(course.id)
 
           return (
             <div key={course.id} className="course-card">
@@ -31,19 +32,26 @@ const CoursesPage = () => {
               </div>
 
               <button
-                className={`enroll-course-btn ${isEnrolled ? "enrolled" : ""}`}
+                className={"course-btn "}
                 onClick={() => handleEnroll(course.id)}
-                disabled={isEnrolled}
-              >
-                {isEnrolled ? "Enrolled" : "Enroll Now"}
+              >Enroll Now
               </button>
             </div>
-          )
+          );
         })}
       </div>
+
+      {enrolledCourse && (
+        <div className="dialog">
+          <div className="dialog-content">
+            <h2>Enrollment Confirmation</h2>
+            <p>You have successfully enrolled in the course with ID: {enrolledCourse}</p>
+            <button onClick={closeDialog}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default CoursesPage
-
+export default CoursesPage;

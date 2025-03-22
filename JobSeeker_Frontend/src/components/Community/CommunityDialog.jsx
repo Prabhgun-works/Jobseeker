@@ -2,11 +2,13 @@ import { useNavigate } from "react-router-dom"
 import communityData from "../../data/Community.json"
 import "./Community.css"
 
-const CommunityDialog = ({ isOpen, onClose }) => {
+       {/* useNavigate : Dynamic navigation based on data: */}
+
+
+const CommunityDialog = ({ isOpen, onClose  }) => {
   const navigate = useNavigate()
   const { communities } = communityData
 
-  // bail out if dialog isn't open
   if (!isOpen) return null
 
   const handleJoinClick = () => {
@@ -37,7 +39,6 @@ const CommunityDialog = ({ isOpen, onClose }) => {
                   <div key={idx} className="message">
                     <div className="message-header">
                       <span className="user-name">{msg.user}</span>
-                      <span className="timestamp">{msg.timestamp}</span>
                     </div>
                     <p>{msg.text}</p>
                   </div>

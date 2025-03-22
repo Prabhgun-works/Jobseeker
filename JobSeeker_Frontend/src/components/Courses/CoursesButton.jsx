@@ -16,7 +16,9 @@ const CourseButtons = () => {
 
       <div className="course-buttons">
         {courses.map((course) => (
-          <button key={course.id} className="course-btn" onClick={() => console.log(`Clicked on ${course.name}`)}>
+          <button key={course.id} className="course-btn" 
+          
+          onClick={() => console.log(`Clicked on ${course.name}`)}>
             {course.name}
           </button>
         ))}

@@ -2,16 +2,22 @@ import { useState } from "react"
 import communityData from "../../data/Community.json"
 import "./Community.css"
 
-// this component has the role of displaying a list of communities that the user can join.
-// The component uses the communityData from the Community.json file to populate the list of communities.
-
 const JoinCommunity = () => {
   const [activeTab, setActiveTab] = useState("popular")
+
+  const [dialogVisible, setDialogVisible] = useState(false)
+  const [dialogContent, setDialogContent] = useState("")
+
   const { communities, suggested } = communityData
 
-  const handleJoin = (communityId) => {
-    console.log(`Joined community ${communityId}`)
-    // rn it just logs the community id to the console
+  const handleJoin = (communityName) => {
+    setDialogContent(`Joined community ${communityName}`)
+    setDialogVisible(true)
+  }
+
+  const closeDialog = () => {
+    setDialogVisible(false)
+    setDialogContent("")
   }
 
   return (
@@ -19,14 +25,13 @@ const JoinCommunity = () => {
       <h1>Join a Community</h1>
 
       <div className="community-tabs">
-        <button className={`tab ${activeTab === "popular" ? "active" : ""}`} onClick={() => setActiveTab("popular")}>
+        <button  onClick={() => setActiveTab("popular")}>
           Popular
         </button>
-        <button className={`tab ${activeTab === "recent" ? "active" : ""}`} onClick={() => setActiveTab("recent")}>
+        <button onClick={() => setActiveTab("recent")}>
           Recent
         </button>
         <button
-          className={`tab ${activeTab === "suggested" ? "active" : ""}`}
           onClick={() => setActiveTab("suggested")}
         >
           Suggested for You
@@ -39,7 +44,7 @@ const JoinCommunity = () => {
             <div key={community.id} className="community-card">
               <h3>{community.name}</h3>
               <p>{community.members} members</p>
-              <button className="join-community-btn" onClick={() => handleJoin(community.id)}>
+              <button className="join-community-btn" onClick={() => handleJoin(community.name)}>
                 Join
               </button>
             </div>
@@ -50,7 +55,7 @@ const JoinCommunity = () => {
             <div key={community.id} className="community-card">
               <h3>{community.name}</h3>
               <p>{community.members} members</p>
-              <button className="join-community-btn" onClick={() => handleJoin(community.id)}>
+              <button className="join-community-btn" onClick={() => handleJoin(community.name)}>
                 Join
               </button>
             </div>
@@ -62,9 +67,15 @@ const JoinCommunity = () => {
           </div>
         )}
       </div>
+
+      {dialogVisible && (
+        <div className="dialog">
+          <p>{dialogContent}</p>
+          <button onClick={closeDialog}>Close</button>
+        </div>
+      )}
     </div>
   )
 }
 
 export default JoinCommunity
-

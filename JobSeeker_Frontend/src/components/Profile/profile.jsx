@@ -1,35 +1,87 @@
-import { useEffect } from "react";
-import { useUser } from "../../context";
-import './profile.css';
+import { useState } from 'react';
+import { useUser } from '../../context.jsx';
+import './Profile.css';
 
 export default function Profile() {
-  const { user, setUser } = useUser();
+  const { user } = useUser();
+  const [activeSection, setActiveSection] = useState('bio');
 
-  //Fetch user data from local storage
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser) {
-      setUser(storedUser); 
-    }
-  }, [setUser]); 
+  // Simple sections for profile
+  const sections = [
+    { id: 'bio', label: 'About Me' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'experience', label: 'Experience' }
+  ];
 
   return (
-    <div className='h-screen  py-4 flex gap-8'> 
-  
-      <div className="profile">
-      <h2> Profile</h2>
-      {user ? (
-        <>
-          <img className="profile-pic" src={user.image}  />
-          <p> {user.userName}</p>
-        </>
-      ) : (
-        <p>No user data available.</p>
-      )}
-    
+    <div className="profile-container">
+      {/* Profile Header */}
+      <div className="profile-header">
+        <img 
+          src={user?.image || '/default-avatar.png'} 
+          alt="Profile" 
+          className="profile-image"
+        />
+        <div className="profile-info">
+          <h1 className="text-2xl font-bold">{user?.userName}</h1>
+          <p className="text-gray-600">{user?.expertise || 'Professional'}</p>
+        </div>
+      </div>
+
+      {/* Navigation Tabs */}
+      <div className="profile-nav">
+        {sections.map(section => (
+          <button
+            key={section.id}
+            onClick={() => setActiveSection(section.id)}
+            className={`nav-button ${activeSection === section.id ? 'active' : ''}`}
+          >
+            {section.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Content Sections */}
+      <div className="profile-content">
+        {/* Bio Section */}
+        {activeSection === 'bio' && (
+          <div className="section-content">
+            <h2>About Me</h2>
+            <p className="bio-text">
+              {user?.bio || 'Add your bio here to tell employers about yourself.'}
+            </p>
+          </div>
+        )}
+
+        {/* Skills Section */}
+        {activeSection === 'skills' && (
+          <div className="section-content">
+            <h2>Skills</h2>
+            <div className="skills-list">
+              {user?.skills?.map((skill, index) => (
+                <div key={index} className="skill-item">
+                  <span>{skill}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Experience Section */}
+        {activeSection === 'experience' && (
+          <div className="section-content">
+            <h2>Work Experience</h2>
+            {user?.experience?.map((exp, index) => (
+              <div key={index} className="experience-item">
+                <h3>{exp.title}</h3>
+                <p className="company">{exp.company}</p>
+                <p className="period">{exp.period}</p>
+                <p className="description">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
 }
-//this Profile component It uses the useUser from Context.jsx to access the user state and setUser function from the UserContext.
-// It also uses the useEffect hook to retrieve the user data from local storage when the component mounts.
