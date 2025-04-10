@@ -18,7 +18,7 @@ export default function Login() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8080/login", {
+      const response = await fetch("http://localhost:8080/api/auth/login", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
@@ -34,6 +34,10 @@ export default function Login() {
       }
 
       const data = await response.json();
+      
+      // Store token and user data
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
       
       // Store user data in context
       setUser(data.user);

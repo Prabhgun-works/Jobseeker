@@ -1,19 +1,18 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import "./signup.css"; 
 import { useUser } from "../../context.jsx";
 
-// It uses the useUser hook from the UserContext to access the setUser function and update the user state with the new user data.
-// It also saves the user data to local storage and displays a modal with a success message when the form is submitted.
-
 export default function SignUp() {
   const {setUser} = useUser();
+  const navigate = useNavigate();
 
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState("");
   const [expertise, setExpertise] = useState("");
   const [qualifications, setQualifications] = useState("");
   const [experience, setExperience] = useState("");
@@ -24,7 +23,8 @@ export default function SignUp() {
   const handleChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setImage(URL.createObjectURL(file));
+      setImage(file);
+      setImagePreview(URL.createObjectURL(file));
     }
   };
 
@@ -38,26 +38,38 @@ export default function SignUp() {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/signup", {
+      const formData = new FormData();
+      formData.append('name', userName);
+      formData.append('email', email);
+      formData.append('password', password);
+      if (image) {
+        formData.append('image', image);
+      }
+      formData.append('expertise', expertise);
+      formData.append('qualifications', qualifications);
+      formData.append('experience', experience);
+
+      console.log('Attempting signup with:', { email, name: userName });
+      const response = await fetch("http://localhost:8080/api/auth/signup", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          userName,
-          email, 
-          password,
-          image,
-          expertise,
-          qualifications,
-          experience
-        }),
+        body: formData,
       });
       
       const data = await response.json();
+      console.log('Signup response:', data);
       
       if (response.ok) {
+        // Store token and user data
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        
+        // Update context
         setUser(data.user);
-        localStorage.setItem("user", JSON.stringify(data.user));
-        setMessage("Signup successful! Please login.");
+        
+        setMessage("Signup successful! Redirecting to login...");
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
       } else {
         setMessage(data.message || "Signup failed. Please try again.");
         if (data.errors) {
@@ -65,6 +77,7 @@ export default function SignUp() {
         }
       }
     } catch (error) {
+      console.error("Signup error:", error);
       setMessage("An error occurred during signup. Please try again later.");
     }
     
@@ -80,68 +93,94 @@ export default function SignUp() {
   };
 
   return (
-    <div className="container">
-      <h2>Sign Up</h2>
+    <div className="signup-container">
+      <h2>Create Account</h2>
       <form onSubmit={handleSubmit}>
-        {image && <img src={image} alt="Profile" width="200" className="profile-pic" />}
-        <input type="file" accept="image/*" onChange={handleChange} />
-
-        <input
-          placeholder="Set Username"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-          type="text"
-          required
-        />
-        <input
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          required
-        />
-        <input
-          placeholder="Set Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-          required
-        />
-        <input
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          type="password"
-          required
-        />
-        <input
-          placeholder="Area of Expertise"
-          value={expertise}
-          onChange={(e) => setExpertise(e.target.value)}
-          type="text"
-        />
-        <input
-          placeholder="Qualifications"
-          value={qualifications}
-          onChange={(e) => setQualifications(e.target.value)}
-          type="text"
-        />
-        <input
-          placeholder="Experience in"
-          value={experience}
-          onChange={(e) => setExperience(e.target.value)}
-          type="text"
-        />
-        <button type="submit">Create Account</button>
+        <div className="form-group">
+          <label>Profile Picture</label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleChange}
+          />
+          {imagePreview && (
+            <img 
+              src={imagePreview} 
+              alt="Preview" 
+              className="profile-pic"
+              style={{ marginTop: '10px' }}
+            />
+          )}
+        </div>
+        <div className="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Expertise</label>
+          <input
+            type="text"
+            value={expertise}
+            onChange={(e) => setExpertise(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Qualifications</label>
+          <textarea
+            value={qualifications}
+            onChange={(e) => setQualifications(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Experience</label>
+          <textarea
+            value={experience}
+            onChange={(e) => setExperience(e.target.value)}
+          />
+        </div>
+        <button type="submit">Sign Up</button>
       </form>
 
       {dialogOpen && (
-        <div className="modal-backdrop" onClick={closeModal}>
-          <div className="modal" onClick={stopPropagation}>
-            <p>{message}</p>
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={stopPropagation}>
+            <h3>{message}</h3>
+            <button onClick={closeModal}>Close</button>
           </div>
         </div>
       )}
     </div>
   );
-}
+} 

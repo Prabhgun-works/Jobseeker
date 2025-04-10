@@ -1,1 +1,30 @@
-{"events":[{"title":"A new event","image":"https://cdn.muenchen-p.de/fl_progressive,q_65/.imaging/stk/responsive/teaser300/dms/va-2016/muenchner-christkindlmarkt/christkindlmarkt-marienplat-logo-hp/document/christkindlmarkt-marienplat-logo-hp.jpg","date":"2022-10-01","description":"Some awesome event!","id":"2a42fcc4-ea21-4bdd-abf6-c40006dc66a9"}],"users":[{"email":"prabhgunsingh.online@gmail.com","password":"$2a$12$S5p.mxH13DtzmAmKhtwG1u2M9gUmjdwiqn40u1zVAW03eO2pLkPhG","id":"53765c71-058d-4aa8-9b83-38ff19b92b03"},{"userName":"prabhgun","email":"123@gmail.com","password":"$2a$12$vn2ouWitBbQ8pz4etYCNJOGFzEkg.BT4/NpjhVM1L74eJ/3f620Jq","image":"","expertise":"","qualifications":"","experience":"","id":"c879abdb-1bf9-4023-8064-ec7d8d370989"},{"userName":"Prabhgun","email":"prabhgun@2005","password":"$2a$12$wHX2sPM3V7uPKz9RfEFvmu68r3.RgUTpg6QIeFwwVNzc7gQ4Yw0YW","image":"blob:http://localhost:5173/6b93f01c-3ec6-4631-a634-464062e18688","expertise":"","qualifications":"","experience":"","id":"44e080d5-bcbb-4e39-aa99-1a2d6a2f7bf6"},{"id":"793754f4-e985-43e6-924c-9ec407882ee3","userName":"admin","email":"admin@2004","password":"$2a$12$9m1OKgAc4Xab.y7dy1X7NumDR1.M519vLo9a3DT1b6uEXvEt.xFn2","image":"blob:http://localhost:5173/05627061-ae60-4de8-8f7a-7ba381bcb37d","expertise":"","qualifications":"","experience":""}]}
+{
+  "users": [
+    {
+      "id": "1742639187487",
+      "email": "admin@2004",
+      "password": "$2a$12$ia7bxbXMapzstgOINC153e3/7OtjEf4yhGFjqVHGHTmgyd2v3pcGy",
+      "name": "admin",
+      "userName": "admin",
+      "image": "/default-avatar.png",
+      "expertise": "Professional",
+      "bio": "",
+      "skills": [],
+      "experience": [],
+      "createdAt": "2025-03-22T10:26:27.487Z"
+    },
+    {
+      "id": "1742639338468",
+      "email": "admin@123",
+      "password": "$2a$12$RbM4topl2LEmCqqEGYbd9elJmr.eEaNzrVj8/Zx/NUAcC349oN6QS",
+      "name": "admin",
+      "userName": "admin",
+      "image": "/default-avatar.png",
+      "expertise": "Professional",
+      "bio": "",
+      "skills": [],
+      "experience": [],
+      "createdAt": "2025-03-22T10:28:58.468Z"
+    }
+  ]
+}
