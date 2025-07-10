@@ -12,7 +12,8 @@ function isValidImageUrl(value) {
 }
 
 function isValidEmail(value) {
-  return value && value.includes('@');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return value && emailRegex.test(value);
 }
 
 exports.isValidText = isValidText;

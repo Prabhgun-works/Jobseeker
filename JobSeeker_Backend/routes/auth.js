@@ -17,7 +17,13 @@ router.post('/signup', async (req, res, next) => {
       if (existingUser) {
         errors.email = 'Email exists already.';
       }
-    } catch (error) {}
+    } catch (error) {
+      // If error is NotFoundError, it means user doesn't exist, which is what we want
+      // Only set error if it's not a NotFoundError
+      if (error.constructor.name !== 'NotFoundError') {
+        errors.email = 'Error checking email availability.';
+      }
+    }
   }
 
   if (!isValidText(data.password, 6)) {
@@ -61,11 +67,22 @@ router.post('/login', async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
+  // Basic email validation for login (less strict than signup)
+  if (!email || !email.includes('@')) {
+    return res.status(422).json({
+      message: 'Invalid credentials.',
+      errors: { credentials: 'Invalid email or password entered.' },
+    });
+  }
+
   let user;
   try {
     user = await get(email);
   } catch (error) {
-    return res.status(401).json({ message: 'Authentication failed.' });
+    return res.status(422).json({
+      message: 'Invalid credentials.',
+      errors: { credentials: 'Invalid email or password entered.' },
+    });
   }
 
   const pwIsValid = await isValidPassword(password, user.password);
