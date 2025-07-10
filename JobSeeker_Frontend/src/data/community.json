@@ -1,0 +1,79 @@
+{
+    "communities": [
+      {
+        "id": 1,
+        "name": "Tech Professionals",
+        "members": 1243,
+        "messages": [
+          {
+            "user": "Sarah",
+            "text": "Just landed a job at Google! The interview tips from this community were super helpful.",
+            "timestamp": "2 hours ago"
+          },
+          {
+            "user": "Mike",
+            "text": "Anyone here have experience with React Native interviews? Got one coming up next week.",
+            "timestamp": "5 hours ago"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Design Hub",
+        "members": 856,
+        "messages": [
+          {
+            "user": "Jessica",
+            "text": "Sharing my UX portfolio - would love some feedback before my interview tomorrow!",
+            "timestamp": "1 day ago"
+          },
+          {
+            "user": "Alex",
+            "text": "Which portfolio platforms do you guys recommend? Trying to move away from Behance.",
+            "timestamp": "2 days ago"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Career Switchers",
+        "members": 1892,
+        "messages": [
+          {
+            "user": "Taylor",
+            "text": "Made the switch from marketing to product management. Happy to answer questions!",
+            "timestamp": "3 hours ago"
+          },
+          {
+            "user": "Jordan",
+            "text": "Any former teachers who transitioned to instructional design? Need some advice.",
+            "timestamp": "1 day ago"
+          }
+        ]
+      }
+    ],
+    "suggested": [
+      {
+        "id": 4,
+        "name": "Remote Workers",
+        "members": 2341
+      },
+      {
+        "id": 5,
+        "name": "Startup Enthusiasts",
+        "members": 1205
+      },
+      {
+        "id": 6,
+        "name": "Freelance Network",
+        "members": 1756
+      },
+      {
+        "id": 7,
+        "name": "Data Science Pros",
+        "members": 982
+      }
+    ]
+  }
+  
+  
