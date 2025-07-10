@@ -1,8 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-
-
-
 import { useUser } from '../../context.jsx';
 import './Profile.css';
 
