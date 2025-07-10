@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from "react";
 import { useUser } from "../../context.jsx";
 import { useNavigate } from "react-router-dom";
@@ -28,15 +29,19 @@ export default function Login() {
         credentials: 'include'
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Login failed");
+        // Handle validation errors (422) and other errors
+        if (response.status === 422 && data.errors) {
+          const errorMessages = Object.values(data.errors).join(", ");
+          throw new Error(errorMessages);
+        }
+        throw new Error(data.message || "Login failed");
       }
 
-      const data = await response.json();
-      
       // Store token and user data
-      localStorage.setItem('token', data.token);
+      localStorage.setItem('token', data.accessToken);
       localStorage.setItem('user', JSON.stringify(data.user));
       
       // Store user data in context

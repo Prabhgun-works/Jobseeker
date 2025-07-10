@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./signup.css"; 
@@ -38,21 +40,22 @@ export default function SignUp() {
     }
 
     try {
-      const formData = new FormData();
-      formData.append('name', userName);
-      formData.append('email', email);
-      formData.append('password', password);
-      if (image) {
-        formData.append('image', image);
-      }
-      formData.append('expertise', expertise);
-      formData.append('qualifications', qualifications);
-      formData.append('experience', experience);
+      const userData = {
+        userName: userName,
+        email: email,
+        password: password,
+        expertise: expertise,
+        qualifications: qualifications,
+        experience: experience
+      };
 
-      console.log('Attempting signup with:', { email, name: userName });
+      console.log('Attempting signup with:', { email, userName });
       const response = await fetch("http://localhost:8080/api/auth/signup", {
         method: "POST",
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
       });
       
       const data = await response.json();
@@ -60,7 +63,7 @@ export default function SignUp() {
       
       if (response.ok) {
         // Store token and user data
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('token', data.accessToken);
         localStorage.setItem('user', JSON.stringify(data.user));
         
         // Update context

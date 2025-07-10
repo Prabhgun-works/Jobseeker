@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useState } from "react"
 import communityData from "../../data/Community.json"
 import "./Community.css"

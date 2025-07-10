@@ -1,11 +1,12 @@
+import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { UserProvider } from "./context.jsx"
-
 import Navbar from "./components/Navbar/Navbar"
 import Home from "./components/Home/home"
 import Profile from "./components/Profile/profile" 
 import Login from "./components/Navbar/Login"
-import SignUp from "./components/Navbar/SignUp"
+import SignUp from "./components/Navbar/signup.jsx"
 import JoinCommunity from "./components/Community/Community"
 import CoursesPage from "./components/Courses/CoursesPage"
 import Jobs from "./components/Jobs/Jobs"

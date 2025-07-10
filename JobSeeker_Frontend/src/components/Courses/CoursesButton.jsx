@@ -1,3 +1,4 @@
+import React from 'react';
 import { useNavigate } from "react-router-dom"
 import coursesData from "../../data/courses.json"
 import "./Courses.css"

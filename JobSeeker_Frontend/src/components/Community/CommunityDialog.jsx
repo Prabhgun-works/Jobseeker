@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useNavigate } from "react-router-dom"
 import communityData from "../../data/Community.json"
 import "./Community.css"

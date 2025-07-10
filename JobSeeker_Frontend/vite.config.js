@@ -1,10 +1,12 @@
-import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
+// No need to import Tailwind plugin here
 
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [[react()],
-  tailwindcss(),],
-})
+  export default {
+    content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+    theme: {
+      extend: {},
+    },
+    plugins: [],
+  };
