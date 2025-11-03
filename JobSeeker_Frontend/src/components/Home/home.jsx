@@ -4,7 +4,7 @@ import { useState } from 'react' ;
 import './home.css';
 import CourseButtons from '../Courses/CoursesButton';
 import CommunityDialog from '../Community/CommunityDialog';
-
+import Disabled from '../Disabled/Disabled';
 
 export default function Home() {
   // this is dummy data for featured Jobs
@@ -82,7 +82,7 @@ export default function Home() {
 
         <CommunityDialog isOpen={showCommunityDialog} onClose={closeCommunityDialog} />
         {/* showCommunityDialog and CloseCom are functions  */}
-
+        <Disabled/>
       </div>
     </div>
   );

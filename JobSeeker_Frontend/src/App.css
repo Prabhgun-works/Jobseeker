@@ -173,7 +173,6 @@ h3 {
 .user-menu button {
   background: none;
   border: none;
-  color: var(--color-dark-70);
   cursor: pointer;
   font-family: var(--font-secondary);
   font-size: var(--font-size-sm);
@@ -181,10 +180,6 @@ h3 {
   align-items: center;
   gap: var(--spacing-xs);
   transition: var(--transition-fast);
-}
-
-.user-menu button:hover {
-  color: var(--color-dark);
 }
 
 .user-menu .dropdown {
