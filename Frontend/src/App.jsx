@@ -2,15 +2,15 @@ import React from 'react';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { UserProvider } from "./context.jsx"
-import Navbar from "./components/Navbar/Navbar"
-import Home from "./components/Home/home"
-import Profile from "./components/Profile/profile" 
-import Login from "./components/Navbar/Login"
+import Navbar from "./components/Navbar/Navbar.jsx"
+import Home from "./components/Home/home.jsx"
+import Profile from "./components/Profile/profile.jsx" 
+import Login from "./components/Navbar/Login.jsx"
 import SignUp from "./components/Navbar/signup.jsx"
-import JoinCommunity from "./components/Community/Community"
-import CoursesPage from "./components/Courses/CoursesPage"
-import Jobs from "./components/Jobs/Jobs"
-import Applications from "./components/Applications/Applications"
+import JoinCommunity from "./components/Community/Community.jsx"
+import CoursesPage from "./components/Courses/CoursesPage.jsx"
+import Jobs from "./components/Jobs/Jobs.jsx"
+import Applications from "./components/Applications/Applications.jsx"
 
 import "./App.css"
 
