@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useUser } from '../../context.jsx';
-import './Profile.css';
+import './profile.css';
 
 export default function Profile() {
   const { user } = useUser();

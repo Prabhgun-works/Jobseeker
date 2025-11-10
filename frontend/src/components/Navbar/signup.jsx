@@ -18,7 +18,7 @@ export default function SignUp() {
   const [expertise, setExpertise] = useState("");
   const [qualifications, setQualifications] = useState("");
   const [experience, setExperience] = useState("");
-
+  const [disability , setDisability] = useState(false); 
   const [dialogOpen, setDialogOpen] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -94,6 +94,11 @@ export default function SignUp() {
   const stopPropagation = (e) => {
     e.stopPropagation();
   };
+
+  const handleDisablity = (e) => {
+    setDisability(e.target.checked); 
+    
+  }
 
   return (
     <div className="signup-container">
@@ -173,8 +178,32 @@ export default function SignUp() {
             onChange={(e) => setExperience(e.target.value)}
           />
         </div>
+        <div className="form-group">
+          
+          <label>Are you Specially Abled?</label>
+
+          <input type='checkbox'
+                  checked={disability}
+                  onChange={handleDisablity}
+            ></input>
+
+            {disability && (
+                     <div className="form-group">
+                      <label>Help us know you better</label>
+                        <select>
+                          <option value="Visual Imapairment"> Visual Imapairment </option>
+                          <option value="Hearing Impairment"> Hearing Impairment </option>
+                          <option value="Intellectual disability"> Intellectual disability </option>
+                          <option value="Downsyndrome "> Downsyndrome  </option>
+                          <option value="Speech and Language Disability "> Speech and Language Disability  </option>
+                        </select>
+                     </div>
+                  )}
+        </div>
+
         <button type="submit">Sign Up</button>
       </form>
+    
 
       {dialogOpen && (
         <div className="modal-overlay" onClick={closeModal}>
