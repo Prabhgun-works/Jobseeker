@@ -1,0 +1,102 @@
+/* Profile Picture Styling */
+.profile-pic {
+    margin-top: 10px;
+    width: 120px; /* Ensures consistency in size */
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--radius-full);
+    border: 3px solid var(--color-dark);
+  }
+  
+  /* Input Styling */
+  input {
+    margin: var(--spacing-sm) 0;
+    padding: var(--spacing-sm);
+    width: 100%;
+    border: 1px solid var(--color-dark-10);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-secondary);
+    transition: var(--transition-fast);
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--color-dark);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Button Styling */
+  button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-secondary);
+    cursor: pointer;
+    transition: var(--transition-fast);
+  }
+  
+  button:hover {
+    background-color: var(--color-dark-90);
+  }
+  
+  button:disabled {
+    background-color: var(--color-dark-50);
+    cursor: not-allowed;
+  }
+  
+  /* Modal Backdrop */
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-dark-80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Box */
+  .modal {
+    background: var(--color-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    text-align: center;
+    position: relative;
+    width: 90%; /* Adaptive width for smaller screens */
+    max-width: 400px; /* Prevents modal from getting too wide */
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Close Button */
+  .close-button {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    border: none;
+    background: none;
+    font-size: var(--font-size-lg);
+    color: var(--color-dark);
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .close-button:hover {
+    color: var(--color-dark-90);
+  }
+  
+  /* For Text Inside Modal */
+  .modal p {
+    margin: var(--spacing-md) 0 var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-dark-70);
+    line-height: 1.6;
+    font-family: var(--font-secondary);
+  }
+  
